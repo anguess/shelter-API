@@ -10,4 +10,10 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+     //add Authorization Manager
+    'authManager' => [
+        'class' => 'yii\rbac\DbManager',
+        'defaultRoles' => ['superAdmin', 'shelterAdmin', 'user']
+    ],
+
 ];
