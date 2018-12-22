@@ -653,7 +653,7 @@ class ApiController extends Controller
             // ->where(['shelter_id' => $response1[$i]['shelter_id']])
             ->where(['shelter_approved' => 1])
             ->all();
-// var_Dump($response2);
+
 if (count($response2)<1){
     $message="No shelters to display.  Need to be approved";
     return $message;
@@ -675,6 +675,12 @@ if (count($response2)<1){
                     ->from('shelter_detail_table')
                     ->where(['shelter_id' => $response2[$i]])
                     ->all();
+            if (count($response1)<1){
+                 $message="No shelters to display.  Need to be approved";
+               return $message;
+            }
+
+                    
                 for ($j = 0; $j < 4; $j++) {
                 array_push($returnedArray, $response2[$i]);
             //add in fields from shelter_detail_table
